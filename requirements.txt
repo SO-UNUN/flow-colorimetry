@@ -6,19 +6,19 @@
 # ==============================================================
 
 # Web framework
-streamlit~=1.57.0
+streamlit~=1.32.0
 
 # Video & image processing
 opencv-python-headless~=4.10.0
 Pillow~=10.4.0
 
 # Numerical & data
-numpy~=1.26.0
-pandas~=2.2.0
-scipy~=1.13.0
+numpy~=1.24.0
+pandas~=2.0.0
+scipy~=1.10.0
 
 # Plotting (interactive)
-plotly~=5.22.0
+plotly~=5.17.0
 
 # ROI selection (drawable canvas)
 # NOTE: ใช้ "streamlit-drawable-canvas-fix" แทนตัว original
