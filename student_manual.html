@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>คู่มือนักศึกษา — Flow Cell Colorimetry | University of Phayao</title>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a1024;--bg2:#11183a;--bg3:#1a2349;--card:#13193b;--bdr:#2a3865;--gold:#e6c870;--gold-d:#c9a94a;--blue:#3b82f6;--purple:#a78bfa;--green:#34d399;--red:#f87171;--orange:#f59e0b;--txt:#e6ecf5;--txt2:#9eb0d0;--txt3:#5a6f95;--body:'Sarabun',sans-serif;--mono:'JetBrains Mono',monospace}
+*{margin:0;padding:0;box-sizing:border-box}body{background:var(--bg);color:var(--txt);font-family:var(--body);line-height:1.85;font-size:16px}::selection{background:var(--gold);color:var(--bg)}a{color:var(--gold);text-decoration:none}a:hover{color:#fff}
+.hdr{background:linear-gradient(180deg,var(--bg2),var(--bg));padding:3.5rem 2rem 2.5rem;text-align:center;border-bottom:2px solid var(--gold)}.hdr-badge{font-family:var(--mono);font-size:.68rem;color:var(--gold);letter-spacing:.18em;text-transform:uppercase;padding:.3rem .9rem;border:1px solid rgba(230,200,112,.4);border-radius:99px;display:inline-block;margin-bottom:.9rem}.hdr h1{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:600;margin-bottom:.4rem}.hdr h1 span{color:var(--gold)}.hdr-sub{color:var(--txt2);font-size:.95rem;max-width:640px;margin:0 auto}
+.nav{position:sticky;top:0;z-index:99;background:rgba(10,16,36,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--gold);padding:.55rem 1rem;display:flex;gap:.4rem;overflow-x:auto;white-space:nowrap;justify-content:center}.nav a{font-size:.8rem;padding:.35rem .8rem;border-radius:6px;border:1px solid var(--bdr);color:var(--txt2);transition:.2s;flex-shrink:0}.nav a:hover{border-color:var(--gold);color:var(--gold);background:rgba(230,200,112,.06)}
+.wrap{max-width:860px;margin:0 auto;padding:0 1.5rem 4rem}section{padding-top:2.8rem}h2{font-size:1.5rem;font-weight:600;margin-bottom:.6rem;color:var(--txt)}h2 .tag{font-family:var(--mono);font-size:.62rem;display:block;color:var(--gold);letter-spacing:.13em;text-transform:uppercase;margin-bottom:.1rem}h3{font-size:1.05rem;font-weight:600;color:var(--gold);margin:1.4rem 0 .4rem}p{color:var(--txt2);margin-bottom:.6rem}
+.vc{background:var(--card);border:1px solid var(--bdr);border-radius:10px;padding:1.1rem 1.3rem;margin:.8rem 0}.vc-title{font-weight:600;color:var(--gold);margin-bottom:.5rem;font-size:.95rem}.vc p{font-size:.9rem;margin-bottom:.35rem}
+.flow{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin:1rem 0}.flow-step{background:var(--bg3);border:1px solid var(--bdr);border-radius:8px;padding:.55rem 1rem;font-size:.88rem;color:var(--txt);display:flex;align-items:center;gap:.4rem}.flow-step .icon{font-size:1.15rem}.flow-arr{color:var(--gold);font-size:1.2rem}
+.note{border-radius:8px;padding:.85rem 1rem;margin:.7rem 0;font-size:.88rem;display:flex;gap:.55rem;align-items:flex-start}.note.info{background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.2);color:var(--blue)}.note.warn{background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.2);color:var(--orange)}.note.ok{background:rgba(52,211,153,.06);border:1px solid rgba(52,211,153,.2);color:var(--green)}.note.danger{background:rgba(248,113,113,.06);border:1px solid rgba(248,113,113,.2);color:var(--red)}.note.gold{background:rgba(230,200,112,.06);border:1px solid rgba(230,200,112,.25);color:var(--gold)}.ni{font-size:1rem;flex-shrink:0}
+.formula{background:var(--bg3);border:1px solid var(--bdr);border-radius:10px;padding:1.1rem 1.3rem;margin:.8rem 0;text-align:center;font-size:1.2rem;font-weight:600;color:var(--gold);font-family:var(--mono)}.formula small{display:block;font-size:.78rem;color:var(--txt3);font-weight:400;margin-top:.4rem;line-height:1.6}
+.modes{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin:.9rem 0}.modes .mode{background:var(--bg3);border:1px solid var(--bdr);border-radius:10px;padding:1rem;text-align:center}.modes .mode .name{font-weight:600;color:var(--gold);font-size:1rem;margin-bottom:.3rem}.modes .mode .desc{font-size:.78rem;color:var(--txt3);line-height:1.55}
+.step-num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--gold);color:var(--bg);font-size:.85rem;font-weight:700;margin-right:.5rem;flex-shrink:0}
+table{width:100%;border-collapse:collapse;margin:.7rem 0;font-size:.85rem}th{background:var(--bg3);color:var(--gold);text-align:left;padding:.45rem .7rem;font-family:var(--mono);font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;border-bottom:2px solid var(--gold)}td{padding:.4rem .7rem;border-bottom:1px solid var(--bdr);color:var(--txt2)}
+pre{background:#070d22;border:1px solid var(--bdr);border-radius:8px;padding:.85rem 1.1rem;overflow-x:auto;font-family:var(--mono);font-size:.78rem;line-height:1.6;color:#a4b8d0;margin:.7rem 0}
+code{font-family:var(--mono);background:rgba(230,200,112,.08);color:var(--gold);padding:.1rem .3rem;border-radius:3px;font-size:.84rem}
+.trouble{margin:.8rem 0}.trouble dt{font-weight:600;color:var(--red);font-size:.92rem;margin-top:.8rem;padding-top:.5rem;border-top:1px solid rgba(248,113,113,.1)}.trouble dt:first-child{border-top:none;padding-top:0}.trouble dd{color:var(--txt2);font-size:.9rem;margin-left:1rem;margin-bottom:.2rem}.trouble dd::before{content:'→ ';color:var(--green)}
+footer{text-align:center;padding:2rem;border-top:1px solid var(--gold);color:var(--txt3);font-size:.78rem;margin-top:2rem}
+@media(max-width:640px){.wrap{padding:0 1rem 3rem}.modes{grid-template-columns:1fr}.flow{flex-direction:column;align-items:flex-start}.flow-arr{transform:rotate(90deg)}}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="hdr-badge">คู่มือนักศึกษา</div>
+  <h1>Flow Cell <span>Colorimetry</span></h1>
+  <p class="hdr-sub">วิเคราะห์การเปลี่ยนแปลงสีของสารละลายจากวิดีโอด้วย Smartphone<br>University of Phayao · Faculty of Science · Physics Department</p>
+</div>
+
+<div class="nav">
+  <a href="#about">เกี่ยวกับโปรแกรม</a>
+  <a href="#theory">หลักการ</a>
+  <a href="#preparation">เตรียมการถ่าย</a>
+  <a href="#modes">3 โหมด</a>
+  <a href="#workflow">วิธีใช้</a>
+  <a href="#interpret">อ่านผล</a>
+  <a href="#trouble">แก้ปัญหา</a>
+</div>
+
+<div class="wrap">
+
+<!-- 1. ABOUT -->
+<section id="about">
+<h2><span class="tag">ส่วนที่ 1</span>เกี่ยวกับโปรแกรม</h2>
+<p>โปรแกรมนี้ใช้วิเคราะห์การเปลี่ยนแปลงสีของสารละลายที่ไหลผ่าน flow cell โดยใช้กล้องมือถือถ่ายวิดีโอ แล้วโปรแกรมจะคำนวณค่าสี (RGB และ HSV) ของแต่ละช่วงเวลา แล้วแสดงเป็นกราฟ</p>
+
+<div class="vc">
+<div class="vc-title">🧪 โปรแกรมนี้ทำอะไรได้?</div>
+<p>✅ อ่านไฟล์วิดีโอจากมือถือ (.mp4, .mov, .avi)</p>
+<p>✅ เลือกพื้นที่ (ROI) ที่ต้องการวิเคราะห์ด้วยการลากเมาส์</p>
+<p>✅ คำนวณค่าสี RGB + HSV ทุกช่วงเวลา</p>
+<p>✅ แสดงกราฟ interactive (zoom, pan, hover)</p>
+<p>✅ ตรวจหาช่วง plateau (ความเข้มข้นคงที่) อัตโนมัติ</p>
+<p>✅ คำนวณ Absorbance + Calibration curve (ในโหมด Advanced)</p>
+<p>✅ Export ข้อมูลเป็น CSV เพื่อนำไปวิเคราะห์ต่อ</p>
+</div>
+</section>
+
+<!-- 2. THEORY -->
+<section id="theory">
+<h2><span class="tag">ส่วนที่ 2</span>หลักการทำงาน</h2>
+
+<h3>Digital Image Colorimetry</h3>
+<p>กล้องมือถือเป็นเซนเซอร์รับแสง 3 ช่อง (Red, Green, Blue) ในแต่ละพิกเซล เมื่อสารละลายมีสี → แสงผ่านเปลี่ยนไป → ค่า RGB เปลี่ยน → เราใช้การเปลี่ยนแปลงนี้บอกความเข้มข้นได้</p>
+
+<div class="formula">RGB intensity → Absorbance → Concentration
+<small>R, G, B = 0–255 ต่อ channel<br>A = -log₁₀(I / I₀)<br>C = (A - intercept) / slope</small></div>
+
+<h3>RGB vs HSV — ต่างกันอย่างไร?</h3>
+<table>
+<thead><tr><th>ระบบสี</th><th>หมายถึง</th><th>เหมาะใช้เมื่อ</th></tr></thead>
+<tbody>
+<tr><td><strong>R</strong> (Red)</td><td>ความเข้มแสงสีแดง</td><td>สารละลายดูดกลืนสีแดง (สารสีฟ้า/เขียว)</td></tr>
+<tr><td><strong>G</strong> (Green)</td><td>ความเข้มแสงสีเขียว</td><td>สารละลายดูดกลืนสีเขียว (สารสีม่วง/แดง)</td></tr>
+<tr><td><strong>B</strong> (Blue)</td><td>ความเข้มแสงสีน้ำเงิน</td><td>สารละลายดูดกลืนสีน้ำเงิน (สารสีเหลือง/ส้ม)</td></tr>
+<tr><td><strong>H</strong> (Hue)</td><td>เฉดสี (0-360°)</td><td>บอก "สีอะไร" ของสารละลาย</td></tr>
+<tr><td><strong>S</strong> (Saturation)</td><td>ความอิ่มตัว (0-100%)</td><td>ความเข้มข้นของสีนั้น</td></tr>
+<tr><td><strong>V</strong> (Value)</td><td>ความสว่าง (0-100%)</td><td>ความสว่างโดยรวม</td></tr>
+</tbody>
+</table>
+
+<div class="note info"><span class="ni">💡</span><div><strong>เคล็ดลับ:</strong> สำหรับสารละลายสีม่วง (เช่น KMnO₄) → channel <strong>G</strong> มักเปลี่ยนชัดที่สุด เพราะสารละลายดูดกลืนแสงเขียวได้ดี (complementary color)</div></div>
+</section>
+
+<!-- 3. PREPARATION -->
+<section id="preparation">
+<h2><span class="tag">ส่วนที่ 3</span>การเตรียมการถ่ายวิดีโอ</h2>
+<p>คุณภาพของผลการวิเคราะห์ขึ้นกับคุณภาพของวิดีโอที่ถ่ายมาก — ทำตามคำแนะนำเหล่านี้</p>
+
+<div class="vc">
+<div class="vc-title">📱 ตั้งค่ากล้องมือถือ</div>
+<p>1️⃣ ใช้แอปกล้อง <strong>manual mode</strong> เช่น <code>ProCam</code> (iOS), <code>Open Camera</code> (Android), หรือ <code>Camera FV-5</code></p>
+<p>2️⃣ <strong>ล็อค exposure</strong> (ปิด auto exposure) — ถ่ายเฟรมแรกที่สว่างพอแล้วล็อคไว้</p>
+<p>3️⃣ <strong>ล็อค white balance</strong> (ปิด auto WB) — สำคัญมาก! ถ้าไม่ล็อค กล้องจะ "ปรับ" สีให้ดูปกติ ทำให้ค่าจริงผิดเพี้ยน</p>
+<p>4️⃣ <strong>ล็อค focus</strong> ที่ระยะ flow cell</p>
+<p>5️⃣ ความละเอียด <strong>720p หรือ 1080p</strong> เพียงพอ (ไม่ต้อง 4K ไฟล์ใหญ่ใช้เวลานาน)</p>
+<p>6️⃣ Frame rate <strong>30 fps</strong> เพียงพอ (ไม่ต้อง 60 fps)</p>
+</div>
+
+<div class="vc">
+<div class="vc-title">💡 การจัดแสง</div>
+<p>1️⃣ ใช้ <strong>light box</strong> หรือกล่องปิดมิดที่มีแสง LED คงที่</p>
+<p>2️⃣ แสงต้องผ่าน flow cell โดยตรง (transmission mode)</p>
+<p>3️⃣ <strong>หลีกเลี่ยงแสงแดด</strong> และแสงแวดล้อมที่เปลี่ยน (ตู้ปฏิบัติการ ห้องเรียน)</p>
+<p>4️⃣ พื้นหลังควรเป็น<strong>สีขาวหรือดำ</strong>ที่สม่ำเสมอ</p>
+</div>
+
+<div class="vc">
+<div class="vc-title">📐 การวาง flow cell + กล้อง</div>
+<p>1️⃣ ใช้ <strong>ขาตั้งกล้อง</strong> หรือฐานยึดมือถือ — ห้ามถือมือ!</p>
+<p>2️⃣ ระยะกล้องถึง flow cell <strong>คงที่</strong> ตลอดการทดลอง</p>
+<p>3️⃣ ตำแหน่งของ flow cell ในเฟรม<strong>ไม่เปลี่ยน</strong> (ไม่ขยับแม้แต่นิด)</p>
+<p>4️⃣ ระยะ macro ใกล้พอที่จะเห็น flow cell ชัดเจน</p>
+</div>
+
+<div class="note danger"><span class="ni">🚫</span><div><strong>ห้ามทำ!</strong><br>
+• ถ่ายวิดีโอด้วยมือถือมือเดียว — กล้องจะสั่น<br>
+• เปิด HDR หรือ Live Photo — กล้องจะปรับภาพอัตโนมัติ<br>
+• ใช้ filter หรือ AI enhancement — สีจะถูกเปลี่ยน<br>
+• เปลี่ยนตำแหน่งกล้องระหว่างถ่าย — ROI จะไม่ตรง</div></div>
+
+<div class="note ok"><span class="ni">✅</span><div><strong>เช็กลิสก่อนถ่าย:</strong><br>
+☐ Manual exposure ล็อคแล้ว<br>
+☐ Manual white balance ล็อคแล้ว<br>
+☐ Focus ล็อคที่ flow cell แล้ว<br>
+☐ มือถืออยู่บนขาตั้ง<br>
+☐ แสง LED เปิดไว้ก่อนเริ่มถ่าย<br>
+☐ พื้นที่ของ flow cell อยู่กลางเฟรม</div></div>
+</section>
+
+<!-- 4. MODES -->
+<section id="modes">
+<h2><span class="tag">ส่วนที่ 4</span>3 โหมดการใช้งาน</h2>
+<p>เลือกโหมดที่เหมาะกับงานของคุณใน sidebar ด้านซ้าย</p>
+
+<div class="modes">
+  <div class="mode">
+    <div class="name">Core</div>
+    <div class="desc">RGB/HSV ตามเวลา — ใช้งานทั่วไป รวดเร็ว เหมาะกับการดูภาพรวม</div>
+  </div>
+  <div class="mode">
+    <div class="name">Core + Plus</div>
+    <div class="desc">Core + smoothing + ตรวจหา plateau อัตโนมัติ — เหมาะกับ flow ที่มีหลายความเข้มข้น</div>
+  </div>
+  <div class="mode">
+    <div class="name">Advanced</div>
+    <div class="desc">Plus + Beer-Lambert + Calibration curve — เหมาะกับงานวิจัย วัด unknown สาร</div>
+  </div>
+</div>
+
+<div class="vc">
+<div class="vc-title">📊 Core (โหมดพื้นฐาน)</div>
+<p>เหมาะสำหรับ: นักศึกษาที่อยากดูว่าค่า RGB เปลี่ยนตามเวลาอย่างไร, สำรวจข้อมูลเบื้องต้น</p>
+<p>สิ่งที่ได้: กราฟ R, G, B vs time + HSV (ถ้าเปิด)</p>
+</div>
+
+<div class="vc">
+<div class="vc-title">📈 Core + Plus (เพิ่ม smoothing + plateau)</div>
+<p>เหมาะสำหรับ: flow ที่มีหลายความเข้มข้นต่อเนื่อง — ต้องการแยกแต่ละความเข้มข้นออกมา</p>
+<p>สิ่งที่ได้เพิ่ม: เส้นกราฟที่ smooth + ตรวจหา plateau (ช่วงค่าคงที่) + ตารางค่าเฉลี่ยแต่ละ plateau</p>
+</div>
+
+<div class="vc">
+<div class="vc-title">🔬 Advanced (วิจัย + calibration)</div>
+<p>เหมาะสำหรับ: งานวิจัยที่ต้องสร้าง calibration curve และคำนวณ unknown concentration</p>
+<p>สิ่งที่ได้เพิ่ม: Absorbance plot + ป้อน known concentrations → Linear regression → predict unknown</p>
+</div>
+</section>
+
+<!-- 5. WORKFLOW -->
+<section id="workflow">
+<h2><span class="tag">ส่วนที่ 5</span>วิธีใช้งานทีละขั้นตอน</h2>
+
+<div class="flow">
+  <div class="flow-step"><span class="icon">📤</span> Upload</div>
+  <span class="flow-arr">→</span>
+  <div class="flow-step"><span class="icon">📐</span> ROI</div>
+  <span class="flow-arr">→</span>
+  <div class="flow-step"><span class="icon">⚙️</span> Settings</div>
+  <span class="flow-arr">→</span>
+  <div class="flow-step"><span class="icon">🚀</span> Analyze</div>
+  <span class="flow-arr">→</span>
+  <div class="flow-step"><span class="icon">📊</span> Results</div>
+</div>
+
+<div class="vc">
+<div class="vc-title"><span class="step-num">1</span> เปิดโปรแกรม</div>
+<p>เปิด terminal ที่ folder โปรเจค → พิมพ์ <code>streamlit run app.py</code></p>
+<p>โปรแกรมจะเปิดในเบราว์เซอร์ที่ <code>http://localhost:8501</code></p>
+</div>
+
+<div class="vc">
+<div class="vc-title"><span class="step-num">2</span> Upload วิดีโอ (Tab 1)</div>
+<p>กดปุ่ม <strong>Browse files</strong> → เลือกไฟล์วิดีโอ</p>
+<p>ขนาดไฟล์ไม่ควรเกิน 200 MB (ถ้าเกิน ให้ตัดเฉพาะช่วงที่สนใจก่อนอัปโหลด)</p>
+<p>ดูข้อมูลวิดีโอด้านขวา (duration, fps, resolution)</p>
+</div>
+
+<div class="vc">
+<div class="vc-title"><span class="step-num">3</span> เลือก ROI (Region of Interest)</div>
+<p>โปรแกรมจะแสดงเฟรมแรกของวิดีโอ → <strong>ลากเมาส์</strong>เป็นสี่เหลี่ยมรอบพื้นที่ flow cell</p>
+<p>เลือกพื้นที่ที่<strong>กลาง</strong> flow cell — หลีกเลี่ยงขอบ ฟองอากาศ หรือเงา</p>
+<p>ขนาด ROI ไม่ต้องใหญ่มาก ~50×50 พิกเซลขึ้นไปก็พอ</p>
+</div>
+
+<div class="vc">
+<div class="vc-title"><span class="step-num">4</span> ตั้งค่าใน Sidebar</div>
+<p><strong>Mode:</strong> เลือก Core / Plus / Advanced</p>
+<p><strong>Sampling fps:</strong> ปกติ 1 fps พอ — ถ้า flow เปลี่ยนช้า ใช้ 0.5 fps ก็ได้</p>
+<p><strong>HSV:</strong> เปิดถ้าอยากดูค่า Hue/Saturation</p>
+<p>ในโหมด Plus/Advanced: ตั้ง smoothing window + plateau threshold</p>
+</div>
+
+<div class="vc">
+<div class="vc-title"><span class="step-num">5</span> Analyze (Tab 2)</div>
+<p>กด <strong>START ANALYSIS</strong> → progress bar แสดงความก้าวหน้า</p>
+<p>ระยะเวลาขึ้นกับ: ขนาดวิดีโอ + sampling rate (วิดีโอ 10 นาที @1fps ใช้เวลา ~30 วินาที)</p>
+</div>
+
+<div class="vc">
+<div class="vc-title"><span class="step-num">6</span> ดูผล (Tab 3)</div>
+<p>📈 <strong>RGB plot</strong> — เส้น R/G/B vs time (ถ้า Plus จะเห็นเส้น smooth ทับด้วย)</p>
+<p>📈 <strong>HSV plot</strong> — Hue + Saturation + Value</p>
+<p>📈 <strong>Absorbance plot</strong> (Advanced) — A_R, A_G, A_B</p>
+<p>📋 <strong>Plateau table</strong> (Plus) — ตารางสรุปแต่ละความเข้มข้น</p>
+<p>🎯 <strong>Calibration</strong> (Advanced) — ป้อน known conc → ได้สมการ regression</p>
+<p>💾 <strong>Download</strong> CSV และ JSON metadata</p>
+</div>
+</section>
+
+<!-- 6. INTERPRET -->
+<section id="interpret">
+<h2><span class="tag">ส่วนที่ 6</span>การอ่านผลและการวิเคราะห์</h2>
+
+<h3>กราฟ RGB — แต่ละสีหมายความว่าอะไร?</h3>
+<div class="vc">
+<p>🔴 <strong>เส้นสีแดง (R)</strong> ลดลง = สารละลายดูดกลืนแสงสีแดงมากขึ้น</p>
+<p>🟢 <strong>เส้นสีเขียว (G)</strong> ลดลง = สารละลายดูดกลืนแสงสีเขียวมากขึ้น</p>
+<p>🔵 <strong>เส้นสีน้ำเงิน (B)</strong> ลดลง = สารละลายดูดกลืนแสงสีน้ำเงินมากขึ้น</p>
+<p>เลือก channel ที่<strong>เปลี่ยนแปลงมากที่สุด</strong>เป็นตัวแทนการวิเคราะห์</p>
+</div>
+
+<h3>Plateau — ทำไมต้องตรวจหา?</h3>
+<div class="vc">
+<p>ถ้าทดลองมีหลายความเข้มข้นต่อเนื่อง (เช่น 0.1 M → 0.2 M → 0.3 M ตามลำดับ)</p>
+<p>ค่าจะ<strong>คงที่ชั่วครู่</strong>เมื่อสารละลายแต่ละความเข้มข้นเข้ามาเต็มใน flow cell</p>
+<p>โปรแกรมจะตรวจหาช่วงที่ค่าคงที่นี้ → คำนวณค่าเฉลี่ย → ใช้เป็นจุดข้อมูล calibration</p>
+</div>
+
+<h3>Calibration Curve — Advanced mode</h3>
+<div class="formula">A = slope × C + intercept
+<small>เมื่อ slope สูง = sensitivity สูง<br>R² ใกล้ 1 = linear relationship ดี</small></div>
+
+<div class="vc">
+<div class="vc-title">📊 ตีความค่า R²</div>
+<p>🟢 <strong>R² ≥ 0.99</strong> — Excellent (ใช้ได้เลย)</p>
+<p>🔵 <strong>R² ≥ 0.95</strong> — Good (ใช้ได้ในงานทั่วไป)</p>
+<p>🟡 <strong>R² ≥ 0.90</strong> — Fair (ตรวจสอบความผิดพลาด)</p>
+<p>🔴 <strong>R² &lt; 0.90</strong> — Poor (ทำซ้ำ)</p>
+</div>
+</section>
+
+<!-- 7. TROUBLESHOOTING -->
+<section id="trouble">
+<h2><span class="tag">ส่วนที่ 7</span>การแก้ปัญหา</h2>
+
+<dl class="trouble">
+  <dt>กราฟ RGB กระโดด/ขึ้นๆ ลงๆ ไม่สม่ำเสมอ</dt>
+  <dd>ตรวจว่า exposure + WB ในกล้องล็อคไว้แล้วหรือไม่</dd>
+  <dd>ตรวจว่ามือถือไม่ขยับตอนถ่าย (ใช้ขาตั้งกล้อง)</dd>
+  <dd>เปิด Plus mode + smoothing เพื่อลด noise</dd>
+
+  <dt>R² ของ calibration curve ต่ำมาก (&lt; 0.9)</dt>
+  <dd>ตรวจว่า ROI อยู่ในตำแหน่งที่สม่ำเสมอ ไม่มีฟองอากาศ</dd>
+  <dd>ตรวจว่า standard solution เตรียมถูกต้อง</dd>
+  <dd>ลองเปลี่ยน channel ที่ใช้ใน calibration (ลอง R, G, B แต่ละ channel)</dd>
+
+  <dt>โปรแกรมตรวจไม่พบ plateau</dt>
+  <dd>ลด <strong>derivative threshold</strong> ใน sidebar ให้ต่ำกว่า</dd>
+  <dd>ลด <strong>min plateau duration</strong> ให้สั้นกว่า</dd>
+  <dd>ตรวจกราฟดูว่า flow แต่ละความเข้มข้นได้ค่าคงที่จริงหรือไม่</dd>
+
+  <dt>Upload วิดีโอไม่ได้ ขึ้น error</dt>
+  <dd>ตรวจขนาดไฟล์ ไม่เกิน 200 MB</dd>
+  <dd>ตัดเฉพาะช่วงที่สนใจก่อนอัปโหลด</dd>
+  <dd>ถ้าไฟล์เป็น .mov จาก iPhone ลอง convert เป็น .mp4 ก่อน</dd>
+
+  <dt>เลือก ROI ไม่ได้ ภาพไม่แสดง</dt>
+  <dd>ตรวจว่า package <code>streamlit-drawable-canvas</code> ติดตั้งแล้ว</dd>
+  <dd>หรือใช้ manual input (ใส่ X, Y, W, H ด้วยตัวเอง)</dd>
+
+  <dt>โปรแกรมรันช้ามาก</dt>
+  <dd>ลด sampling rate (เช่น 0.5 fps แทน 2 fps)</dd>
+  <dd>ใช้วิดีโอความละเอียดต่ำลง (720p แทน 1080p)</dd>
+  <dd>ตัดวิดีโอให้สั้นลง วิเคราะห์ทีละช่วง</dd>
+</dl>
+</section>
+
+</div>
+
+<footer>
+  Flow Cell Colorimetry — Smartphone-based Digital Image Colorimetry<br>
+  University of Phayao · Faculty of Science · Physics Department<br>
+  หากพบปัญหาที่แก้ไขเองไม่ได้ กรุณาติดต่ออาจารย์ผู้สอน
+</footer>
+
+</body>
+</html>
