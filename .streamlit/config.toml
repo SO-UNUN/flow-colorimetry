@@ -1,0 +1,16 @@
+# Streamlit configuration for Flow Cell Colorimetry
+# University of Phayao | Physics Department
+
+[server]
+maxUploadSize = 400
+headless = true
+
+[browser]
+gatherUsageStats = false
+
+[theme]
+primaryColor = "#e6c870"
+backgroundColor = "#0a1024"
+secondaryBackgroundColor = "#13193b"
+textColor = "#e6ecf5"
+font = "sans serif"
