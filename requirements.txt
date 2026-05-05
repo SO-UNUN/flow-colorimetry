@@ -27,7 +27,7 @@ plotly~=5.22.0
 streamlit-drawable-canvas-fix~=0.9.8
 
 # Optional: scikit-image for advanced features
-scikit-image~=0.24.0
+#scikit-image~=0.24.0
 
 # ==============================================================
 # Installation:
